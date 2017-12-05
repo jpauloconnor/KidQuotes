@@ -12,7 +12,9 @@ namespace KidQuotes.Models
         public int QuoteId { get; set; }
 
         public string Quote { get; set; }
-        
+
+        public string KidName { get; set; }
+
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 

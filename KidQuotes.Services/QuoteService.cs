@@ -36,26 +36,82 @@ namespace KidQuotes.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-       
-
-        public bool DeleteQuote(int quoteId)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<QuoteListModel> GetQuotes()
         {
-            throw new NotImplementedException();
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Quotes
+                        .Where(e => e.OwnerId == _userId)
+                        .Select(
+                            e =>
+                                new QuoteListModel
+                                {
+                                    QuoteId = e.QuoteId,
+                                    Quote = e.Quote,
+                                    KidName = e.KidName,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+
+                return query.ToArray();
+            }
         }
 
         public QuoteDetailsModel GetQuoteById(int quoteId)
         {
-            throw new NotImplementedException();
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Quotes
+                        .Single(e => e.QuoteId == quoteId && e.OwnerId == _userId);
+
+                return
+                    new QuoteDetailsModel
+                    {
+                        QuoteId = entity.QuoteId,
+                        Quote = entity.Quote,
+                        Description = entity.Description,
+                        KidName = entity.KidName,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
+            }
         }
 
         public bool UpdateQuote(QuoteEditModel model)
         {
-            throw new NotImplementedException();
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Quotes
+                        .Single(e => e.QuoteId == model.QuoteId && e.OwnerId == _userId);
+
+                entity.Quote = model.Quote;
+                entity.Description = model.Description;
+                entity.KidName = model.KidName;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteQuote(int quoteId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Quotes
+                        .Single(e => e.QuoteId == quoteId && e.OwnerId == _userId);
+
+                ctx.Quotes.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
         }
     }
 }

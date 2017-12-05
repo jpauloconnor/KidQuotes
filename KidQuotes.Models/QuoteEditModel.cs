@@ -11,5 +11,7 @@ namespace KidQuotes.Models
         public int QuoteId { get; set; }
         public string Quote { get; set; }
         public string Description { get; set; }
+        public string KidName { get; set; }
+
     }
 }
