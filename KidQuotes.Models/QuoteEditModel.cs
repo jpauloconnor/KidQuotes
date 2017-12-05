@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace KidQuotes.Models
 {
-    class QuoteEditModel
+    public class QuoteEditModel
     {
+        public int QuoteId { get; set; }
+        public string Quote { get; set; }
+        public string Description { get; set; }
     }
 }
