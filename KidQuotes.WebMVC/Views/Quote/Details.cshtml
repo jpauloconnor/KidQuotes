@@ -1,4 +1,4 @@
-﻿@model KidQuotes.Data.QuoteEntity
+﻿@model KidQuotes.Models.QuoteDetailsModel
 
 @{
     ViewBag.Title = "Details";
@@ -10,13 +10,6 @@
     <h4>QuoteEntity</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.OwnerId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OwnerId)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Quote)

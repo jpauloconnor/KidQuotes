@@ -1,4 +1,4 @@
-﻿@model IEnumerable<KidQuotes.Data.QuoteEntity>
+﻿@model IEnumerable<KidQuotes.Models.QuoteListModel>
 
 @{
     ViewBag.Title = "Index";
@@ -12,13 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.OwnerId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Quote)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.KidName)
@@ -26,31 +20,20 @@
         <th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </th>
+        
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.OwnerId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Quote)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.KidName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedUtc)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.QuoteId }) |

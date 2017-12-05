@@ -33,23 +33,6 @@ namespace KidQuotes.WebMVC.Controllers
             return View();
         }
 
-        // GET: Quote/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            QuoteEntity quoteEntity = db.Quotes.Find(id);
-            if (quoteEntity == null)
-            {
-                return HttpNotFound();
-            }
-            return View(quoteEntity);
-        }
-
-        
-
         // POST: Quote/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -72,18 +55,21 @@ namespace KidQuotes.WebMVC.Controllers
         }
 
         // GET: Quote/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            QuoteEntity quoteEntity = db.Quotes.Find(id);
-            if (quoteEntity == null)
-            {
-                return HttpNotFound();
-            }
-            return View(quoteEntity);
+            var service = CreateQuoteService();
+            var detail = service.GetQuoteById(id);
+            var model =
+                new QuoteEditModel
+                {
+                    QuoteId = detail.QuoteId,
+                    Quote = detail.Quote,
+                    Description = detail.Description,
+                    KidName = detail.KidName,
+                    
+                };
+
+            return View(model);
         }
 
         // POST: Quote/Edit/5
@@ -91,30 +77,47 @@ namespace KidQuotes.WebMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuoteId,OwnerId,Quote,Description,KidName,CreatedUtc,ModifiedUtc")] QuoteEntity quoteEntity)
+        public ActionResult Edit(int id, QuoteEditModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.QuoteId != id)
             {
-                db.Entry(quoteEntity).State = EntityState.Modified;
-                db.SaveChanges();
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateQuoteService();
+
+            if (service.UpdateQuote(model))
+            {
+                TempData["SaveResult"] = "Your note was updated";
                 return RedirectToAction("Index");
             }
-            return View(quoteEntity);
+
+            ModelState.AddModelError("", "Your note could not be updated.");
+            return View(model);
         }
 
-        // GET: Quote/Delete/5
-        public ActionResult Delete(int? id)
+
+        // GET: Quote/Details/5
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            QuoteEntity quoteEntity = db.Quotes.Find(id);
-            if (quoteEntity == null)
-            {
-                return HttpNotFound();
-            }
-            return View(quoteEntity);
+            var svc = CreateQuoteService();
+            var model = svc.GetQuoteById(id);
+
+            return View(model);
+        }
+
+
+
+        // GET: Quote/Delete/5
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateQuoteService();
+            var model = svc.GetQuoteById(id);
+
+            return View(model);
         }
 
         // POST: Quote/Delete/5
@@ -122,11 +125,15 @@ namespace KidQuotes.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            QuoteEntity quoteEntity = db.Quotes.Find(id);
-            db.Quotes.Remove(quoteEntity);
-            db.SaveChanges();
+            var service = CreateQuoteService();
+
+            service.DeleteQuote(id);
+
+            TempData["SaveResult"] = "Your note was deleted!";
+
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

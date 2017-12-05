@@ -12,6 +12,7 @@ namespace KidQuotes.Models
         public string Quote { get; set; }
         public string Description { get; set; }
         public string KidName { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
 
     }
 }

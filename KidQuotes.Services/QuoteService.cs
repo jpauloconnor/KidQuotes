@@ -26,6 +26,7 @@ namespace KidQuotes.Services
                     OwnerId = _userId,
                     Quote = model.Quote,
                     Description = model.Description,
+                    KidName = model.KidName,
                     CreatedUtc = DateTimeOffset.UtcNow
                 };
 
