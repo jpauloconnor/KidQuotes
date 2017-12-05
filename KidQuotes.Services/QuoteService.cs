@@ -1,11 +1,11 @@
-﻿using KidQutoes.Contracts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KidQuotes.Models;
 using KidQuotes.Data;
+using KidQuotes.Contracts;
 
 namespace KidQuotes.Services
 {
@@ -43,7 +43,7 @@ namespace KidQuotes.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<QuoteListModel> GetNotes()
+        public IEnumerable<QuoteListModel> GetQuotes()
         {
             throw new NotImplementedException();
         }

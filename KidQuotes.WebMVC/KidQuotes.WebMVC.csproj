@@ -282,6 +282,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KidQuotes.Contracts\KidQuotes.Contracts.csproj">
+      <Project>{20afa590-6592-4375-b889-a74a832a469b}</Project>
+      <Name>KidQuotes.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KidQuotes.Data\KidQuotes.Data.csproj">
       <Project>{a342c8b6-f7e6-4924-89b6-6473d0e8b2b8}</Project>
       <Name>KidQuotes.Data</Name>

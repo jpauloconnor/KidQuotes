@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KidQuotes.Services", "KidQu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KidQuotes.WebMVC", "KidQuotes.WebMVC\KidQuotes.WebMVC.csproj", "{A64A3362-EE25-417E-886D-CC9CF24B9135}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KidQuotes.Contracts", "KidQuotes.Contracts\KidQuotes.Contracts.csproj", "{20AFA590-6592-4375-B889-A74A832A469B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{A64A3362-EE25-417E-886D-CC9CF24B9135}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A64A3362-EE25-417E-886D-CC9CF24B9135}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A64A3362-EE25-417E-886D-CC9CF24B9135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20AFA590-6592-4375-B889-A74A832A469B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20AFA590-6592-4375-B889-A74A832A469B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20AFA590-6592-4375-B889-A74A832A469B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20AFA590-6592-4375-B889-A74A832A469B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

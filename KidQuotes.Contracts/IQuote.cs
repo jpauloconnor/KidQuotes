@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KidQoutes.Contracts
+namespace KidQuotes.Contracts
 {
     public interface IQuote
     {

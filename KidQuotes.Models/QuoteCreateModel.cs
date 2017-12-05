@@ -18,6 +18,10 @@ namespace KidQuotes.Models
         [MaxLength(8000)]
         public string Description { get; set; }
 
+        [Required]
+        [MaxLength(15)]
+        public string KidName { get; set; }
+
         public override string ToString() => Quote;
     }
 }

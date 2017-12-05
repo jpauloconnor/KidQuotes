@@ -7,9 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using KidQuotes.Data;
+using KidQuotes.Services;
+using Microsoft.AspNet.Identity;
+using KidQuotes.Models;
 
 namespace KidQuotes.WebMVC.Controllers
 {
+    [Authorize]
     public class QuoteController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,7 +21,16 @@ namespace KidQuotes.WebMVC.Controllers
         // GET: Quote
         public ActionResult Index()
         {
-            return View(db.Quotes.ToList());
+            var service = CreateQuoteService();
+            var model = service.GetQuotes();
+
+            return View(model);
+        }
+
+        // GET: Quote/Create
+        public ActionResult Create()
+        {
+            return View();
         }
 
         // GET: Quote/Details/5
@@ -35,27 +48,27 @@ namespace KidQuotes.WebMVC.Controllers
             return View(quoteEntity);
         }
 
-        // GET: Quote/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        
 
         // POST: Quote/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuoteId,OwnerId,Quote,Description,KidName,CreatedUtc,ModifiedUtc")] QuoteEntity quoteEntity)
+        public ActionResult Create(QuoteCreateModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateQuoteService();
+
+            if (service.CreateQuote(model))
             {
-                db.Quotes.Add(quoteEntity);
-                db.SaveChanges();
+                TempData["SaveResult"] = "Your quote was created.";
                 return RedirectToAction("Index");
             }
 
-            return View(quoteEntity);
+            ModelState.AddModelError("", "Your note could not be created.");
+            return View(model);
         }
 
         // GET: Quote/Edit/5
@@ -122,6 +135,13 @@ namespace KidQuotes.WebMVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private QuoteService CreateQuoteService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new QuoteService(userId);
+            return service;
         }
     }
 }
