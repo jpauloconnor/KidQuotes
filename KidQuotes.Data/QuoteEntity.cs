@@ -18,8 +18,8 @@ namespace KidQuotes.Data
 
         [Required]
         public string Quote { get; set; }
-
         public string Description { get; set; }
+        public string KidName { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

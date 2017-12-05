@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using KidQuotes.WebMVC.Models;
+using KidQuotes.Data;
 //using KidQuotes.WebMVC.Models;
 
 namespace KidQuotes.WebMVC

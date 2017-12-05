@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using KidQuotes.WebMVC.Models;
+using KidQuotes.Data;
 
 namespace KidQuotes.WebMVC
 {

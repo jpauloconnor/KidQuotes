@@ -54,13 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\201712050401512_InitialCreate.cs" />
-    <Compile Include="Migrations\201712050401512_InitialCreate.Designer.cs">
-      <DependentUpon>201712050401512_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712050421079_identityloginconfig.cs" />
-    <Compile Include="Migrations\201712050421079_identityloginconfig.Designer.cs">
-      <DependentUpon>201712050421079_identityloginconfig.cs</DependentUpon>
+    <Compile Include="Migrations\201712051444533_intial.cs" />
+    <Compile Include="Migrations\201712051444533_intial.Designer.cs">
+      <DependentUpon>201712051444533_intial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,11 +67,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712050401512_InitialCreate.resx">
-      <DependentUpon>201712050401512_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712050421079_identityloginconfig.resx">
-      <DependentUpon>201712050421079_identityloginconfig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712051444533_intial.resx">
+      <DependentUpon>201712051444533_intial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

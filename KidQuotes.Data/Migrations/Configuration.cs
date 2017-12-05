@@ -5,15 +5,14 @@ namespace KidQuotes.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<KidQuotes.WebMVC.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<KidQuotes.Data.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "KidQuotes.WebMVC.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(KidQuotes.WebMVC.Models.ApplicationDbContext context)
+        protected override void Seed(KidQuotes.Data.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

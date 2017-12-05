@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using KidQuotes.WebMVC.Models;
+using KidQuotes.Data;
 
 namespace KidQuotes.WebMVC.Controllers
 {
