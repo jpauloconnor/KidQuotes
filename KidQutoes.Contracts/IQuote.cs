@@ -9,12 +9,10 @@ namespace KidQutoes.Contracts
 {
     public interface IQuote
     {
-        public bool CreateQuote(QuoteCreateModel model);
-        public IEnumerable<NoteListItem> GetNotes();
-        public NoteDetail GetNoteById(int noteId);
-        public bool UpdateNote(NoteEdit model);
-        public bool DeleteNote(int noteId);
-
-
+        bool CreateQuote(QuoteCreateModel model);
+        IEnumerable<QuoteListModel> GetNotes();
+        QuoteDetailsModel GetQuoteById(int quoteId);
+        bool UpdateQuote(QuoteEditModel model);
+        bool DeleteQuote(int quoteId);
     }
 }
