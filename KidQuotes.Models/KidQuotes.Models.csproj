@@ -47,8 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuoteCreateModel.cs" />
+    <Compile Include="QuoteDetailsModel.cs" />
+    <Compile Include="QuoteEditModel.cs" />
+    <Compile Include="QuoteListModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
