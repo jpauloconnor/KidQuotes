@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KidQuotes.Models
 {
-    public class Class1
+    class QuoteListModel
     {
     }
 }
