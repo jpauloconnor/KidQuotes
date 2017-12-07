@@ -10,6 +10,7 @@ using KidQuotes.Data;
 using KidQuotes.Services;
 using Microsoft.AspNet.Identity;
 using KidQuotes.Models;
+using KidQuotes.Contracts;
 
 namespace KidQuotes.WebMVC.Controllers
 {
@@ -17,9 +18,19 @@ namespace KidQuotes.WebMVC.Controllers
     public class QuoteController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private IQuote _quote;
 
+        public QuoteController(IQuote quote)
+        {
+            this._quote = quote;
+        }
+
+        public QuoteController()
+        {
+            this._quote = new QuoteService();
+        }
         // GET: Quote
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var service = CreateQuoteService();
             var model = service.GetQuotes();

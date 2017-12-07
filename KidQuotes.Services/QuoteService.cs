@@ -17,6 +17,10 @@ namespace KidQuotes.Services
         {
             _userId = userId;
         }
+        public QuoteService()
+        {
+
+        }
 
         public bool CreateQuote(QuoteCreateModel model)
         {
