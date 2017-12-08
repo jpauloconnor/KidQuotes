@@ -18,22 +18,25 @@ namespace KidQuotes.WebMVC.Controllers
     public class QuoteController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        private IQuote _quote;
 
-        public QuoteController(IQuote quote)
-        {
-            this._quote = quote;
-        }
+        private readonly Lazy<IQuote> _quoteService;
+        private IQuote QuoteService => _quoteService.Value;
 
         public QuoteController()
         {
-            this._quote = new QuoteService();
+            _quoteService = new Lazy<IQuote>(() => new QuoteService(Guid.Parse(User.Identity.GetUserId())));
         }
-        // GET: Quote
-        public ViewResult Index()
+
+        //For Testing
+        public QuoteController(Lazy<IQuote> quoteService)
         {
-            var service = CreateQuoteService();
-            var model = service.GetQuotes();
+            _quoteService = quoteService;
+        }
+
+        // GET: Quote
+        public ActionResult Index()
+        {
+            var model = _quoteService.Value.GetQuotes();
 
             return View(model);
         }
@@ -53,9 +56,8 @@ namespace KidQuotes.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            var service = CreateQuoteService();
 
-            if (service.CreateQuote(model))
+            if (QuoteService.CreateQuote(model))
             {
                 TempData["SaveResult"] = "Your quote was created.";
                 return RedirectToAction("Index");
@@ -68,8 +70,7 @@ namespace KidQuotes.WebMVC.Controllers
         // GET: Quote/Edit/5
         public ActionResult Edit(int id)
         {
-            var service = CreateQuoteService();
-            var detail = service.GetQuoteById(id);
+            var detail = QuoteService.GetQuoteById(id);
             var model =
                 new QuoteEditModel
                 {
@@ -77,7 +78,7 @@ namespace KidQuotes.WebMVC.Controllers
                     Quote = detail.Quote,
                     Description = detail.Description,
                     KidName = detail.KidName,
-                    
+
                 };
 
             return View(model);
@@ -98,9 +99,7 @@ namespace KidQuotes.WebMVC.Controllers
                 return View(model);
             }
 
-            var service = CreateQuoteService();
-
-            if (service.UpdateQuote(model))
+            if (QuoteService.UpdateQuote(model))
             {
                 TempData["SaveResult"] = "Your note was updated";
                 return RedirectToAction("Index");
@@ -114,8 +113,7 @@ namespace KidQuotes.WebMVC.Controllers
         // GET: Quote/Details/5
         public ActionResult Details(int id)
         {
-            var svc = CreateQuoteService();
-            var model = svc.GetQuoteById(id);
+            var model = QuoteService.GetQuoteById(id);
 
             return View(model);
         }
@@ -125,8 +123,7 @@ namespace KidQuotes.WebMVC.Controllers
         // GET: Quote/Delete/5
         public ActionResult Delete(int id)
         {
-            var svc = CreateQuoteService();
-            var model = svc.GetQuoteById(id);
+            var model = QuoteService.GetQuoteById(id);
 
             return View(model);
         }
@@ -136,9 +133,7 @@ namespace KidQuotes.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var service = CreateQuoteService();
-
-            service.DeleteQuote(id);
+            QuoteService.DeleteQuote(id);
 
             TempData["SaveResult"] = "Your note was deleted!";
 
@@ -153,13 +148,6 @@ namespace KidQuotes.WebMVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        private QuoteService CreateQuoteService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new QuoteService(userId);
-            return service;
         }
     }
 }

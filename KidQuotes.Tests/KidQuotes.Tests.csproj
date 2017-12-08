@@ -83,7 +83,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="QuoteControllerTests.cs" />
+    <Compile Include="Controllers\CreatePost.cs" />
+    <Compile Include="Controllers\FakeQuoteService.cs" />
+    <Compile Include="Controllers\QuoteControllerTestsBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
