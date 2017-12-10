@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace KidQuotes.WebApi.Controllers
 {
+    [Authorize]
     public class QuoteController : ApiController
     {
         // GET /api/note
