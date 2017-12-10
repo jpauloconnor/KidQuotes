@@ -228,13 +228,13 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuoteController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -299,6 +299,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Quote\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -314,6 +315,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KidQuotes.Data\KidQuotes.Data.csproj">
+      <Project>{A342C8B6-F7E6-4924-89B6-6473D0E8B2B8}</Project>
+      <Name>KidQuotes.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KidQuotes.Models\KidQuotes.Models.csproj">
+      <Project>{7f7d6b0d-3d10-4303-9efb-6c2bee0b2223}</Project>
+      <Name>KidQuotes.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KidQuotes.Services\KidQuotes.Services.csproj">
+      <Project>{3DC61503-A0EB-446B-9DC1-8FEE966E0528}</Project>
+      <Name>KidQuotes.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using KidQuotes.WebApi.Models;
 using KidQuotes.WebApi.Providers;
 using KidQuotes.WebApi.Results;
+using KidQuotes.Data;
 
 namespace KidQuotes.WebApi.Controllers
 {

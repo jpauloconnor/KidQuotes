@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using KidQuotes.WebApi.Models;
+using KidQuotes.Data;
 
 namespace KidQuotes.WebApi.Providers
 {

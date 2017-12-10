@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using KidQuotes.WebApi.Models;
+using KidQuotes.Data;
 
 namespace KidQuotes.WebApi
 {
