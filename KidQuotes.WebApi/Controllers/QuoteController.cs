@@ -38,14 +38,14 @@ namespace KidQuotes.WebApi.Controllers
             return Ok();
         }
 
-        public IHttpActionResult Put(QuoteEditModel model)
+        public IHttpActionResult Put(QuoteEditModel quote)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateQuoteService();
 
-            if (!service.UpdateQuote(model))
+            if (!service.UpdateQuote(quote))
                 return InternalServerError();
 
             return Ok();
