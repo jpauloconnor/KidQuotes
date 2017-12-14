@@ -26,7 +26,6 @@ namespace KidQuotes.WebApi.Controllers
             var quote = quoteService.GetQuoteById(id);
             return Ok(quote);
         }
-
         public IHttpActionResult Post(QuoteCreateModel model)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -38,7 +37,6 @@ namespace KidQuotes.WebApi.Controllers
 
             return Ok();
         }
-
         public IHttpActionResult Put(QuoteEditModel quote)
         {
             if (!ModelState.IsValid)
@@ -61,7 +59,6 @@ namespace KidQuotes.WebApi.Controllers
 
             return Ok();
         }
-
         private QuoteService CreateQuoteService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
