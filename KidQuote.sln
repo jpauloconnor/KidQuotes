@@ -7,11 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KidQuotes.Data", "KidQuotes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KidQuotes.Models", "KidQuotes.Models\KidQuotes.Models.csproj", "{7F7D6B0D-3D10-4303-9EFB-6C2BEE0B2223}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KidQutoes.Contracts", "KidQutoes.Contracts\KidQutoes.Contracts.csproj", "{E2D8286E-E6B9-44A2-AAA6-3F09BE0535CB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KidQuotes.WebApi", "KidQuotes.WebApi\KidQuotes.WebApi.csproj", "{74021EFB-0F88-4341-9267-7D5E283D8F2A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KidQuotes.WebAngular", "KidQuotes.WebAngular\KidQuotes.WebAngular.csproj", "{0AAC0E37-3A9B-493B-8F91-17EB37ACCCBA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KidQuotes.Tests", "KidQuotes.Tests\KidQuotes.Tests.csproj", "{0A525286-5675-44FF-8396-D2B4BEDA14BC}"
 EndProject
@@ -35,18 +31,10 @@ Global
 		{7F7D6B0D-3D10-4303-9EFB-6C2BEE0B2223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F7D6B0D-3D10-4303-9EFB-6C2BEE0B2223}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F7D6B0D-3D10-4303-9EFB-6C2BEE0B2223}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E2D8286E-E6B9-44A2-AAA6-3F09BE0535CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E2D8286E-E6B9-44A2-AAA6-3F09BE0535CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E2D8286E-E6B9-44A2-AAA6-3F09BE0535CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E2D8286E-E6B9-44A2-AAA6-3F09BE0535CB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{74021EFB-0F88-4341-9267-7D5E283D8F2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{74021EFB-0F88-4341-9267-7D5E283D8F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74021EFB-0F88-4341-9267-7D5E283D8F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74021EFB-0F88-4341-9267-7D5E283D8F2A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0AAC0E37-3A9B-493B-8F91-17EB37ACCCBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AAC0E37-3A9B-493B-8F91-17EB37ACCCBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AAC0E37-3A9B-493B-8F91-17EB37ACCCBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AAC0E37-3A9B-493B-8F91-17EB37ACCCBA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A525286-5675-44FF-8396-D2B4BEDA14BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A525286-5675-44FF-8396-D2B4BEDA14BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A525286-5675-44FF-8396-D2B4BEDA14BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
